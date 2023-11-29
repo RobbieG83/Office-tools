@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Excel Comparison</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.8/xlsx.full.min.js"></script>
+    <script src="comparison.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+        
+        <div id="h1-container">
+            <h1>Excel Comparison</h1>
+        </div>
+        <form id="compareForm">
+            <label for="file1">Excel File 1:</label><br>
+            <input type="file" id="file1" name="file1"><br>
+            <label for="file2">Excel File 2:</label><br>
+            <input type="file" id="file2" name="file2"><br>
+            <label for="column">Reference Column:</label><br>
+            <input type="text" id="column" name="column"><br>
+            <input type="button" value="Download comparison" onclick="compareFiles()">
+        </form>
+        <nav>
+            <a href="C:\Users\ROB\Desktop\Sidebar\index.html">Home</a>
+        </nav>
+</body>
+<main>
+    <div id="results"></div>
+</main>
+</html>

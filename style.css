@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #615f5f;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.logo-placeholder {
+    width: 165px;
+    height: 165px;
+    background-image: url('./Motel logo square.png');
+    background-size: cover;
+    background-position: center;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    align-self: flex-start;
+}
+
+.links-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.sidebar {
+    background: linear-gradient(to top right, #33ccff 0%, #ff99cc 100%);
+    width: 200px;
+    padding: 15px;
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #000000;
+    justify-content: space-between;
+    
+}
+
+.sidebar a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: white;
+    background-color: #000000;
+    display: block;
+    text-decoration: none;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#compareForm{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(to top right, #33ccff 0%, #ff99cc 100%);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#h1-container {
+    /* replace with the styles you have for .compareForm */
+    color: white;
+    background-color: #000000;
+    border: 2px solid #FFFFFF;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border: 2px solid #FFFFFF;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #f2f2f2;
+}
+
+nav a {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background-color: #000000;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+.box-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(to top right, #33ccff 0%, #ff99cc 100%);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
