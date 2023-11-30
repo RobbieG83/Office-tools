@@ -1,42 +1,34 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const lookupValues = document.getElementById('lookupValues');
-  const comparisonSheet = document.getElementById('comparisonSheet');
-  const downloadButton = document.getElementById('downloadButton');
+document.getElementById('downloadButton').addEventListener('click', function() {
+    var lookupValues = document.getElementById('lookupValues').value.split(',').map(function(value) {
+        return value.trim();
+    });
+    var fileInput = document.getElementById('comparisonSheet');
+    var file = fileInput.files[0];
+    var reader = new FileReader();
 
-  downloadButton.addEventListener('click', function() {
-      const values = lookupValues.value.split(',');
-      console.log('Lookup values:', values); // Debug line
+    reader.onload = function(e) {
+        var contents = e.target.result;
+        var lines = contents.split('\n');
+        var results = [];
 
-      const file = comparisonSheet.files[0];
-      if (!file) {
-          alert('Please select a file!');
-          return;
-      }
+        for (var i = 0; i < lines.length; i++) {
+            var cells = lines[i].split(',');
+            for (var j = 0; j < lookupValues.length; j++) {
+                if (cells.includes(lookupValues[j])) {
+                    results.push(lines[i]);
+                    break;
+                }
+            }
+        }
 
-      const reader = new FileReader();
-      reader.onload = function(e) {
-          const contents = e.target.result;
-          const lines = contents.split('\n');
-          console.log('CSV lines:', lines); // Debug line
+        var blob = new Blob([results.join('\n')], {type: 'text/csv'});
+        var url = URL.createObjectURL(blob);
 
-          const results = lines.filter(line => values.includes(line.split(',')[0]));
-          console.log('Results:', results); // Debug line
+        var link = document.createElement('a');
+        link.href = url;
+        link.download = 'results.csv';
+        link.click();
+    };
 
-          if (results.length === 0) {
-              alert('No matching values found!');
-              return;
-          }
-
-          const blob = new Blob([results.join('\n')], {type: 'text/csv'});
-          const url = URL.createObjectURL(blob);
-
-          const link = document.createElement('a');
-          link.href = url;
-          link.download = 'results.csv';
-          link.click();
-
-          URL.revokeObjectURL(url);
-      };
-      reader.readAsText(file);
-  });
+    reader.readAsText(file);
 });
